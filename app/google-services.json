@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "126927059487",
+    "firebase_url": "https://e-omfed.firebaseio.com",
+    "project_id": "e-omfed",
+    "storage_bucket": "e-omfed.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:126927059487:android:388057a251b3473ca2b32a",
+        "android_client_info": {
+          "package_name": "com.sihhackathon.e_omfed"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "126927059487-jtub1qejpq8h3qu134cvtubqlfbuik5k.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.sihhackathon.e_omfed",
+            "certificate_hash": "21bfd081e0414483e6c6e1f125842ac6512de2d3"
+          }
+        },
+        {
+          "client_id": "126927059487-gb46rvodv10ld48p5ttsqt679mlsfnut.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDiubbva8wlxSZp_EdQe8U3D1W63Q6NSnY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "126927059487-gb46rvodv10ld48p5ttsqt679mlsfnut.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

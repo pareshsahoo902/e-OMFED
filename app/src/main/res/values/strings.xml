@@ -1,0 +1,23 @@
+<resources>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="app_name">e-OMFED</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Orders</string>
+    <string name="menu_slideshow">cart</string>
+    <string name="menu_tools">Categories</string>
+    <string name="menu_share">Account</string>
+    <string name="menu_send">Logout</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_addproduct">Add Product</string>
+    <string name="title_orders">Orders</string>
+    <string name="title_account">Account</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

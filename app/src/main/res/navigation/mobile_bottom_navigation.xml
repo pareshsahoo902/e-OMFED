@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_bottom_navigation"
+    tools:ignore="UnusedNavigation"
+    app:startDestination="@+id/navigation_home"
+    >
+
+    <fragment
+        android:id="@+id/navigation_home"
+        android:name="com.sihhackathon.e_omfed.bottomUI.AdminHomeFragment"
+        android:label="@string/title_home"
+        tools:layout="@layout/fragment_bottom_home" />
+
+    <fragment
+        android:id="@+id/navigation_add_product"
+        android:name="com.sihhackathon.e_omfed.bottomUI.AdminAddProductFragment"
+        android:label="@string/title_addproduct"
+        tools:layout="@layout/fragment_bottom_addproduct" />
+
+    <fragment
+        android:id="@+id/navigation_orders"
+        android:name="com.sihhackathon.e_omfed.bottomUI.AdminOrdersFragment"
+        android:label="@string/title_orders"
+        tools:layout="@layout/fragment_bottom_orders" />
+
+
+
+</navigation>

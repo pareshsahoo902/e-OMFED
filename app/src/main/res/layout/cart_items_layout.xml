@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardMaxElevation="15dp"
+    android:layout_margin="6dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@android:color/holo_blue_dark"
+        >
+        <TextView
+            android:id="@+id/productcartname"
+            android:layout_width="2000dp"
+            android:textColor="@android:color/black"
+            android:textSize="15dp"
+            android:layout_marginLeft="6dp"
+            android:text="Product name :"
+            android:textStyle="bold"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/productcartquantity"
+            android:layout_width="160dp"
+            android:textColor="@android:color/black"
+            android:textSize="15dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginRight="10dp"
+            android:textStyle="bold"
+            android:gravity="center"
+            android:layout_margin="5dp"
+            android:layout_marginLeft="6dp"
+            android:text="Product Quantity :"
+            android:layout_height="wrap_content"/>
+
+        <TextView
+            android:id="@+id/productcartprice"
+            android:layout_width="160dp"
+            android:textColor="@android:color/black"
+            android:textSize="15dp"
+            android:layout_marginLeft="10dp"
+            android:text="Product Price :"
+            android:layout_below="@+id/productcartname"
+            android:textStyle="bold"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:layout_margin="5dp"
+            android:layout_height="wrap_content"/>
+
+
+    </RelativeLayout>
+
+</androidx.cardview.widget.CardView>

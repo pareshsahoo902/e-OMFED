@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ConfirmOrderAtivity">
+
+    <TextView
+        android:id="@+id/shipmentText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_alignParentTop="true"
+        android:text="Enter Shipment Details Here."
+        android:textSize="20dp"
+        style="@style/TextAppearance.AppCompat.Display4"
+        android:textColor="@android:color/holo_green_dark"/>
+
+    <EditText
+        android:id="@+id/shipment_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Name"
+        android:layout_marginTop="100dp"
+        android:layout_below="@+id/shipmentText"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        />
+    <EditText
+        android:id="@+id/shipment_number"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Contact no."
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/shipment_name"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        />
+    <EditText
+        android:id="@+id/shipment_addres"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Address"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/shipment_number"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        />
+    <EditText
+        android:id="@+id/shipment_cityname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="City name"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/shipment_addres"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        />
+
+    <EditText
+        android:id="@+id/shipment_pincode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Pincode"
+        android:layout_marginTop="20dp"
+        android:layout_below="@+id/shipment_cityname"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        />
+    <Button
+        android:id="@+id/deliver_here"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Deliver here"
+        android:layout_alignParentBottom="true"
+        android:layout_margin="15dp"
+        style="@style/Widget.AppCompat.Button.Colored"
+        />
+
+</RelativeLayout>

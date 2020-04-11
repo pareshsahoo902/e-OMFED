@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent" android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/r2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        
+        >
+
+        <EditText
+            android:id="@+id/search_text_admin"
+            android:layout_width="320dp"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginBottom="5dp"
+            android:background="@drawable/search_layout"
+            android:hint="Search item..."
+            android:padding="5dp"
+            android:textColorHint="#999999"
+            android:textColor="@android:color/black"
+            android:textSize="20dp" />
+
+        <ImageButton
+            android:id="@+id/search_btn1"
+            android:layout_width="wrap_content"
+            android:layout_height="61dp"
+            android:layout_margin="2dp"
+            android:layout_marginStart="2dp"
+            android:layout_marginLeft="2dp"
+            android:layout_marginTop="2dp"
+            android:layout_marginEnd="2dp"
+            android:layout_marginRight="2dp"
+            android:layout_marginBottom="2dp"
+            android:layout_toRightOf="@+id/search_text_admin"
+            android:background="@android:color/white"
+            android:padding="10dp"
+            android:src="@drawable/search_button" />
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recycler_admin_menu"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/r2"
+        android:layout_height="653dp"
+        android:scrollbars="vertical"
+        >
+
+    </androidx.recyclerview.widget.RecyclerView>
+</RelativeLayout>
