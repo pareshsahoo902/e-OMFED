@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/holo_purple"
+    tools:context=".GenerateBill">
+
+    <TextView
+        android:id="@+id/bill"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="100dp"
+        android:text="i n v o i c e"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:textAllCaps="true"
+        />
+
+    <TextView
+        android:id="@+id/billing_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="name"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/bill"
+        android:textAllCaps="true"
+        />
+    <TextView
+        android:id="@+id/billing_adress"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:text="address"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/billing_name"
+        android:textAllCaps="true"
+        />
+    <TextView
+        android:id="@+id/bill_subscription_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/billing_adress"
+        android:text="supscription id:"
+        android:textAllCaps="true"
+        />
+    <TextView
+        android:id="@+id/bill_transaction_id"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/bill_subscription_id"
+        android:text="transaction id::"
+        android:textAllCaps="true"
+        />
+    <TextView
+        android:id="@+id/billingamount"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/bill_transaction_id"
+        android:text="amount"
+        android:textAllCaps="true"
+        />
+    <TextView
+        android:id="@+id/billing_date"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/billingamount"
+        android:text="date"
+        android:textAllCaps="true"
+        />
+    <TextView
+        android:id="@+id/billingtime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_marginLeft="40dp"
+        android:layout_below="@+id/billing_date"
+        android:text="Time"
+        android:textAllCaps="true"
+        />
+
+    <Button
+        android:id="@+id/save_invoice"
+        android:layout_width="300dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        style="@style/Widget.AppCompat.Button.Colored"
+        android:layout_marginBottom="70dp"
+        android:text="save invoice"
+        ></Button>
+</RelativeLayout>

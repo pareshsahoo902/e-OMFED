@@ -106,7 +106,7 @@ public class ConfirmOrderAtivity extends AppCompatActivity {
 
         final UUID uuid=UUID.randomUUID();
         final String uid = uuid.toString();
-        DatabaseReference orderRef = FirebaseDatabase.getInstance().getReference().child("orders").child("users_view").child(Prevalent.currentOnlineUsers.getPhone_number()).child(uid);
+        DatabaseReference orderRef = FirebaseDatabase.getInstance().getReference().child("orders").child(Prevalent.currentOnlineUsers.getPhone_number());
 
         HashMap<String,Object> hashMap=new HashMap<>();
         hashMap.put("total_price",total_amount);
@@ -125,37 +125,29 @@ public class ConfirmOrderAtivity extends AppCompatActivity {
             public void onComplete(@NonNull Task<Void> task) {
                 if (task.isSuccessful())
                 {
-                    DatabaseReference admin_order_ref = FirebaseDatabase.getInstance().getReference().child("orders").child("admins_view").child(Prevalent.currentOnlineUsers.getPhone_number());
-                    HashMap<String,Object> hashMap1=new HashMap<>();
-                    hashMap1.put("total_price",total_amount);
-                    hashMap1.put("Shipment_Name",shipment_name.getText().toString());
-                    hashMap1.put("Shipment_Address",shipment_Address.getText().toString());
-                    hashMap1.put("Shipment_Cityname",shipment_cityname.getText().toString());
-                    hashMap1.put("Shipment_Pincode",shipment_pincode.getText().toString());
-                    hashMap1.put("Shipment_Contact",shipment_Contact.getText().toString());
-                    hashMap1.put("date",saveCurrentDate);
-                    hashMap1.put("time",saveCurrentTime);
-                    hashMap1.put("state","not approved");
-                    admin_order_ref.updateChildren(hashMap1);
+//                    FirebaseDatabase.getInstance().getReference().child("Cart_List").child("user_view")
+//                            .child(Prevalent.currentOnlineUsers.getPhone_number())
+//                            .removeValue()
+//                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                @Override
+//                                public void onComplete(@NonNull Task<Void> task) {
+//                                    if (task.isSuccessful()){
+//
+//                                        Toast.makeText(ConfirmOrderAtivity.this, "order confirmed", Toast.LENGTH_SHORT).show();
+//
+//                                        startActivity(new Intent(ConfirmOrderAtivity.this,HomeActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
+//
+//
+//                                    }
+//
+//                                }
+//                            });
+
+                                        startActivity(new Intent(ConfirmOrderAtivity.this,OrderPayment.class).putExtra("total price",String.valueOf(total_amount))
+                                                .putExtra("order id",(String.valueOf(uid))));
 
 
-                    FirebaseDatabase.getInstance().getReference().child("Cart_List").child("user_view")
-                            .child(Prevalent.currentOnlineUsers.getPhone_number())
-                            .removeValue()
-                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                @Override
-                                public void onComplete(@NonNull Task<Void> task) {
-                                    if (task.isSuccessful()){
 
-                                        Toast.makeText(ConfirmOrderAtivity.this, "order confirmed", Toast.LENGTH_SHORT).show();
-
-                                        startActivity(new Intent(ConfirmOrderAtivity.this,HomeActivity.class).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK));
-
-
-                                    }
-
-                                }
-                            });
                 }
 
             }

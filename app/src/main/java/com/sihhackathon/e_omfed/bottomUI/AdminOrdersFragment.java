@@ -56,7 +56,7 @@ public class AdminOrdersFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        orderRef= FirebaseDatabase.getInstance().getReference().child("orders").child("admins_view");
+        orderRef= FirebaseDatabase.getInstance().getReference().child("orders");
 
         options=new FirebaseRecyclerOptions.Builder<Orders>().setQuery(orderRef ,Orders.class).build();
 

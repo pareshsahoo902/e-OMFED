@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -42,10 +43,11 @@ public class GalleryFragment extends Fragment {
 
     private RecyclerView recyclerView;
 
-    private DatabaseReference orderRef;
+    private DatabaseReference cartListref;
     private ArrayList<Orders> arrayList;
-    private FirebaseRecyclerOptions<Orders> options;
-    private FirebaseRecyclerAdapter<Orders, OrderViewHolder> adapter;
+    private FirebaseRecyclerOptions<Cart> options;
+    public Button btn;
+    private FirebaseRecyclerAdapter<Cart, CartViewHolder> adapter;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -54,7 +56,9 @@ public class GalleryFragment extends Fragment {
         View root = inflater.inflate(R.layout.fragment_gallery, container, false);
 
 
+        btn=(Button) root.findViewById(R.id.btn_ord);
         recyclerView=(RecyclerView)root.findViewById(R.id.recycler_order_user);
+
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
 
@@ -67,82 +71,110 @@ public class GalleryFragment extends Fragment {
     public void onStart() {
         super.onStart();
 
-        orderRef= FirebaseDatabase.getInstance().getReference().child("orders").child("users_view").child(Prevalent.currentOnlineUsers.getPhone_number());
+        cartListref= FirebaseDatabase.getInstance().getReference().child("Cart_List").child("admin_view").child(Prevalent.currentOnlineUsers.getPhone_number())
+                .child("PRODUCTS");
+        cartListref.keepSynced(true);
 
-        options=new FirebaseRecyclerOptions.Builder<Orders>().setQuery(orderRef ,Orders.class).build();
 
-        adapter=new FirebaseRecyclerAdapter<Orders, OrderViewHolder>(options) {
+        options=new FirebaseRecyclerOptions.Builder<Cart>().setQuery(cartListref ,Cart.class).build();
+
+
+
+//        adapter=new FirebaseRecyclerAdapter<Orders, OrderViewHolder>(options) {
+//            @Override
+//            protected void onBindViewHolder(@NonNull OrderViewHolder orderViewHolder, final int i, @NonNull final Orders orders) {
+//
+//                orderViewHolder.oreder_username.setText("Name: "+orders.getShipment_Name());
+//                orderViewHolder.oreder_contact.setText("Contact: "+orders.getShipment_Contact());
+//                orderViewHolder.oreder_cityname.setText(orders.getShipment_Cityname());
+//                orderViewHolder.oreder_pincode.setText("Pincode: "+orders.getShipment_Pincode());
+//                orderViewHolder.oreder_Date.setText("Date: "+orders.getDate());
+//                orderViewHolder.oreder_total_price.setText("Total. ₹ "+orders.getTotal_price());
+//
+//                orderViewHolder.viewDetails.setText(orders.getState());
+//
+//
+//                orderViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
+//                    @Override
+//                    public void onClick(View v) {
+//                        CharSequence Options[] =new CharSequence[]
+//                                {
+//                                        "View Details",
+//                                        "Cancel Order"
+//                                };
+//
+//                        AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
+//                        builder.setTitle("Manage Orders");
+//
+//                        builder.setItems(Options, new DialogInterface.OnClickListener() {
+//                            @Override
+//                            public void onClick(DialogInterface dialog, int which) {
+//
+//                                if(which==0)
+//                                {
+//                                    Toast.makeText(getContext(), "view product details", Toast.LENGTH_SHORT).show();
+//
+//
+//
+//                                }
+//                                if (which==1)
+//                                {
+//
+//                                    orderRef.child(orders.getOrder_id()).removeValue()
+//                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
+//                                        @Override
+//                                        public void onComplete(@NonNull Task<Void> task) {
+//
+//                                            Toast.makeText(getActivity(), "order removed", Toast.LENGTH_SHORT).show();
+//                                        }
+//                                    });
+//
+//                                }
+//
+//                            }
+//                        });
+//
+//                        builder.show();
+//                    }
+//                });
+
+
+//            }
+//
+//            @NonNull
+//            @Override
+//            public OrderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+//                return new OrderViewHolder(LayoutInflater.from(getContext()).inflate(R.layout.activity_order_list,parent,false));
+//            }
+//        };
+//
+//        recyclerView.setAdapter(adapter);
+//
+//        adapter.startListening();
+//
+        adapter=new FirebaseRecyclerAdapter<Cart, CartViewHolder>(options) {
             @Override
-            protected void onBindViewHolder(@NonNull OrderViewHolder orderViewHolder, final int i, @NonNull final Orders orders) {
+            protected void onBindViewHolder(@NonNull CartViewHolder cartViewHolder, int i, @NonNull Cart cart) {
 
-                orderViewHolder.oreder_username.setText("Name: "+orders.getShipment_Name());
-                orderViewHolder.oreder_contact.setText("Contact: "+orders.getShipment_Contact());
-                orderViewHolder.oreder_cityname.setText(orders.getShipment_Cityname());
-                orderViewHolder.oreder_pincode.setText("Pincode: "+orders.getShipment_Pincode());
-                orderViewHolder.oreder_Date.setText("Date: "+orders.getDate());
-                orderViewHolder.oreder_total_price.setText("Total. ₹ "+orders.getTotal_price());
+                cartViewHolder.txtproduct_name.setText(cart.getPname());
+                cartViewHolder.txtproduct_quantity.setText("Quantity= "+cart.getQuantity());
+                cartViewHolder.txtproduct_price.setText("Price :₹"+cart.getPrice());
 
-                orderViewHolder.viewDetails.setText(orders.getState());
-
-                orderViewHolder.itemView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        CharSequence Options[] =new CharSequence[]
-                                {
-                                        "View Details",
-                                        "Cancel Order"
-                                };
-
-                        AlertDialog.Builder builder=new AlertDialog.Builder(getActivity());
-                        builder.setTitle("Manage Orders");
-
-                        builder.setItems(Options, new DialogInterface.OnClickListener() {
-                            @Override
-                            public void onClick(DialogInterface dialog, int which) {
-
-                                if(which==0)
-                                {
-                                    Toast.makeText(getContext(), "view product details", Toast.LENGTH_SHORT).show();
-
-
-
-                                }
-                                if (which==1)
-                                {
-
-                                    orderRef.child(orders.getOrder_id()).removeValue()
-                                            .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                        @Override
-                                        public void onComplete(@NonNull Task<Void> task) {
-
-                                            Toast.makeText(getActivity(), "order removed", Toast.LENGTH_SHORT).show();
-                                        }
-                                    });
-
-                                }
-
-                            }
-                        });
-
-                        builder.show();
-                    }
-                });
 
 
             }
 
             @NonNull
             @Override
-            public OrderViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-                return new OrderViewHolder(LayoutInflater.from(getContext()).inflate(R.layout.activity_order_list,parent,false));
+            public CartViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+                return new CartViewHolder(LayoutInflater.from(parent.getContext()).inflate(R.layout.cart_items_layout,parent,false));
+
             }
         };
 
         recyclerView.setAdapter(adapter);
-
+//
         adapter.startListening();
-
-
 
     }
 

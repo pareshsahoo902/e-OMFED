@@ -74,15 +74,15 @@ public class ViewOrderDetailsActivity extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
 
-                        if(dataSnapshot.child("orders").child("admins_view").child(uid).exists())
+                        if(dataSnapshot.child("orders").child(uid).exists())
                         {
-                            Orders orderdata=dataSnapshot.child("orders").child("admins_view").child(uid).getValue(Orders.class);
+                            Orders orderdata=dataSnapshot.child("orders").child(uid).getValue(Orders.class);
                             if(orderdata.getState().equals("not approved"))
                             {
 
                                 HashMap<String, Object> hashMap= new HashMap<>();
                                 hashMap.put("state","approved");
-                                verifyRefrence.child("orders").child("users_view").child(uid)
+                                verifyRefrence.child("orders").child(uid)
                                         .updateChildren(hashMap)
                                         .addOnCompleteListener(new OnCompleteListener<Void>() {
                                             @Override

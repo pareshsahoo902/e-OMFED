@@ -12,7 +12,9 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AdminManageProducts"></activity>
+        <activity android:name=".GenerateBill"></activity>
+        <activity android:name=".OrderPayment" />
+        <activity android:name=".AdminManageProducts" />
         <activity android:name=".SearcProductActivity" />
         <activity android:name=".ViewOrderDetailsActivity" />
         <activity android:name=".AdminHomeActivity" />
