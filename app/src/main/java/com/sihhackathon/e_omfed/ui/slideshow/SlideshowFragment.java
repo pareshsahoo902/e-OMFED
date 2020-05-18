@@ -165,6 +165,8 @@ public class SlideshowFragment extends Fragment {
 
                                                }
                                            });
+                                   cartlistREf.child("admin_view").child(Prevalent.currentOnlineUsers.getPhone_number()).child("PRODUCTS")
+                                           .child(cart.getPid()).removeValue();
 
                                }
 

@@ -37,6 +37,7 @@ public class GenerateBill extends AppCompatActivity {
         Oid= getIntent().getStringExtra("order id");
 
         amount.setText("billing amount : ₹"+total_amount);
+        subscription_id.setText("subscription id: "+Oid);
 
         save_invoice.setOnClickListener(new View.OnClickListener() {
             @Override

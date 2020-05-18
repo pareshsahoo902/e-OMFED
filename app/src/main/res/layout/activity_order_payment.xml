@@ -35,11 +35,34 @@
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/payment_recycler_item"
         android:layout_width="match_parent"
-        android:layout_height="400dp"
+        android:layout_height="370dp"
         android:layout_below="@+id/order_total_payment"
         android:layout_marginTop="30dp"
         android:scrollbars="vertical"
 
+        />
+
+    <TextView
+        android:id="@+id/email_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="20dp"
+        android:text="Enter you E-mail:"
+        android:layout_above="@+id/email_id"
+        android:paddingBottom="10dp"
+        android:textSize="18dp"
+        />
+
+    <EditText
+        android:id="@+id/email_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/Upi_btn"
+        android:hint=" @example.com"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:textSize="20dp"
+        android:padding="10dp"
         />
 
     <Button
@@ -51,7 +74,7 @@
         android:layout_marginStart="15dp"
         android:layout_marginTop="15dp"
         android:layout_marginEnd="15dp"
-        android:layout_marginBottom="100dp"
+        android:layout_marginBottom="50dp"
         android:text="Pay with UPI" />
 
 
